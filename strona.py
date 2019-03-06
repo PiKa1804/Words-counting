@@ -8,8 +8,6 @@ app = Flask(__name__)
 def start():
     return render_template('start.html')
 
-
-
 @app.route('/',methods = ['POST'])
 def result():
     text = request.form['text']
@@ -34,6 +32,11 @@ def result():
             print("Can't connect")
             return render_template('start.html',tekst={},header='Can\'t connect with '+text)
     
-   
+ 
+@app.errorhandler(404)   
+def not_found_error(error):
+    return render_template('404.html'),404
+
+
 if __name__ == '__main__':
     app.run() 
