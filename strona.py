@@ -14,7 +14,7 @@ def result():
     URL_BASE='http://'+text
     result=dict()
 
-    try: #sprawdzanie czy można scrapować stronę i czy jest jakas odpowiedz
+    try: 
             parser = urllib.robotparser.RobotFileParser()
             parser.set_url(urllib.parse.urljoin(URL_BASE, '/robots.txt'))
             parser.read()
